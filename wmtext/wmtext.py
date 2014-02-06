@@ -47,8 +47,7 @@ def query_yes_no(question, default="yes"):
         an answer is required of the user).
 
     The "answer" return value is one of "yes" or "no".
-	'''
-	'''    
+    
 	Copied from
 	http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
 	'''
@@ -118,8 +117,7 @@ def query_yes_quit(question, default="quit"):
         an answer is required of the user).
 
     The "answer" return value is one of "yes" or "quit".
-	'''
-	'''    
+	
 	Modified from
 	http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
 	'''
@@ -161,6 +159,34 @@ def title(mytitle):
 	
 def subtitle(mysubtitle):
 	print colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL
+	
+class progressbar:
+	current = 0
+	maximum = 100
+	bar_color = colorama.Fore.GREEN
+	reset_color = colorama.Style.RESET_ALL
+	lenght = 79
+	
+	def __init__ (self, current=0, maximum=100, bar_color=colorama.Fore.GREEN):
+		self.current = min(current, maximum)
+		self.maximum = max(current, maximum)
+		self.color = bar_color
+		self.length = 79 - (len(str(self.maximum)) * 2 + 6)
+	
+	def update(self, currently=None):
+		if currently == None:
+			pass
+		else:
+			self.current = currently
+		filled = float(self.current) / float(self.maximum) * float(self.length)
+		filled = int(filled)
+		unfilled = self.length - filled
+		mystring = "[" + self.color + "="*filled + " "*unfilled + self.reset_color + "] " + str(self.current).rjust(len(str(self.maximum))) + " / " + str(self.maximum)
+		sys.stdout.write('\r' + mystring + '\r')
+	
+	def reset(self):
+		self.current = 0
+	
 	
 '''To-Do:
 * add a 'rainbow-ize function to make text a rainbow of colours!
