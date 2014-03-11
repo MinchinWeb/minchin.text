@@ -1,9 +1,11 @@
 '''WMText
-v.4.0 - WM - Feb. 6, 2014
+v.4.1 - WM - March 10, 2014
 
 This is a helper file, containing formatting helps for creating command line
 programs.
 '''
+
+__version__ = '4.1'
 
 import sys
 import time

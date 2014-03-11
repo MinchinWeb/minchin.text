@@ -8,7 +8,7 @@ except ImportError:
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-def get_version(filename="wmtext/__init__.py"):
+def get_version(filename="wmtext.py"):
     with open(os.path.join(base_dir, filename)) as initfile:
         for line in initfile.readlines():
             m = re.match("__version__ *= *['\"](.*)['\"]", line)
