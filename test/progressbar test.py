@@ -4,12 +4,17 @@ import time
 import colorama
 colorama.init()
 
-from wmtext import wmtext
+import wmtext
 
 bar = wmtext.progressbar()
 for i in range(0,101):
 	bar.update(i)
 	time.sleep(0.05)
+print
+
+bar2 = wmtext.progressbar(maximum=0)
+print
+bar2.update(0.00001)
 print
 	
 bar = wmtext.progressbar(maximum=5326)

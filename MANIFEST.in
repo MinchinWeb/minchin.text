@@ -1,0 +1,4 @@
+include wmtext.py
+include README.md
+include HISTORY.md
+include LICENSE
