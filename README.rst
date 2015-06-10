@@ -6,6 +6,10 @@ Python library for text formatting on the command line.
 Avaiable Data
 -------------
 
+\_\_version\_\_
+```````````
+library version.
+
 re_ansi_control_codes
 `````````````````````
 Compiled regex pattern for ANSI control codes, including colors.
@@ -40,9 +44,7 @@ query_yes_no(question, default="yes")
 Ask a yes/no question via raw_input() and return their answer.
 
  - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>.
-    It must be "yes" (the default), "no" or None (meaning
-    an answer is required of the user).
+ - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no" or None (meaning an answer is required of the user).
  - The "answer" return value is one of "yes" or "no".
 
 query_yes_no_all(question, default="yes")
@@ -50,9 +52,7 @@ query_yes_no_all(question, default="yes")
 Ask a yes/no/all question via raw_input() and return their answer.
 
  - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>.
-    It must be "yes" (the default), "no", "all" or None (meaning
-    an answer is required of the user).
+ - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no", "all" or None (meaning an answer is required of the user).
  - The "answer" return value is one of "yes", "no", or "all".
 
 def query_yes_quit(question, default="quit")
@@ -60,9 +60,7 @@ def query_yes_quit(question, default="quit")
 Ask a yes/quit question via raw_input() and return their answer.
 
  - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>.
-    It must be "yes" (the default), "quit" or None (meaning
-    an answer is required of the user).
+ - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "quit" or None (meaning an answer is required of the user).
  - The "answer" return value is one of "yes" or "quit".
 
 wait(sec)
@@ -104,3 +102,13 @@ Code
 ----
 
 The code is available at https://github.com/MinchinWeb/minchin.text
+
+Contributions are welcome!
+
+Tests
+-----
+Located in the `test` folder. Each is a "visual test", so they need to be run and the output manually examined.
+
+License
+-------
+The code is licensed under the MIT license. See that attached `LICENSE` file.

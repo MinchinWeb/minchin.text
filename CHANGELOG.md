@@ -2,6 +2,8 @@ v 5.0 [2015-06-10]
 ==================
  - move package to `minchin.text`
  - add tests for `minchin.text.centered()`
+ - add end character to progress bar
+ - add documentation to README.rst
 
 v 4.4 [2014-10-26]
 ==================
