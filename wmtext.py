@@ -13,7 +13,7 @@ import time
 import re
 import colorama
 
-__version__ = '4.4'
+__version__ = '4.4.0'
 
 # Fix Python 2.x.
 try:
@@ -210,4 +210,6 @@ class progressbar:
 	
 '''To-Do:
 * add a 'rainbow-ize function to make text a rainbow of colours!
+* add a 'align-righted' function (text on right)
+* fix centered for odd lenght strings
 '''

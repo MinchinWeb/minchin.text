@@ -1,3 +1,7 @@
+v 4.4 [2014-10-26]
+==================
+ - typographic changes to allow wmtext to work in Python 3
+
 v 4.1 [2014-03-10]
 ==================
  - allow access as a direct object.   
