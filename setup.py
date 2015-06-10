@@ -29,10 +29,10 @@ setup(
     install_requires = [
 		"colorama >= 0.2.5"
         ],
-    classifiers = (
+    classifiers = [
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
-        'License :: OSI Approved :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
@@ -43,6 +43,6 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: IronPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        'Topic :: Utilities',
-        ),
+        'Topic :: Utilities'
+        ],
 )

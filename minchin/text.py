@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''Minchin.Text
-v.5.0 - WM - June 10, 2015
+v.5.0.1 - WM - June 10, 2015
 
 This is a helper file, containing formatting helps for creating command line
 programs.
@@ -13,7 +13,7 @@ import time
 import re
 import colorama
 
-__version__ = '5.0.0'
+__version__ = '5.0.1'
 
 # Fix Python 2.x.
 try:
@@ -212,8 +212,8 @@ class progressbar:
         self.current = 0
 
 
-'''To-Do:
+'''
+To-Do:
 * add a 'rainbow-ize function to make text a rainbow of colours!
 * add a 'align-righted' function (text on right)
-* fix centered for odd lenght strings
 '''

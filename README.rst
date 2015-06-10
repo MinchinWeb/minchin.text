@@ -7,7 +7,7 @@ Avaiable Data
 -------------
 
 \_\_version\_\_
-```````````
+```````````````
 library version.
 
 re_ansi_control_codes
@@ -83,6 +83,7 @@ progressbar (class)
 This class is used to create and then update a 'progress bar', like:
 
 .. code-block:: shell
+
     [================>                                                      ] 17 / 70
 
 
@@ -101,7 +102,7 @@ Sets the value of the progress bar to 0 (zero) and prints it.
 Code
 ----
 
-The code is available at https://github.com/MinchinWeb/minchin.text
+The code is available at `https://github.com/MinchinWeb/minchin.text <https://github.com/MinchinWeb/minchin.text>`_
 
 Contributions are welcome!
 
