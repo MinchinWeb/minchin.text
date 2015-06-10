@@ -2,3 +2,4 @@ include minchin/text.py
 include README.rst
 include CHANGELOG.md
 include LICENSE
+include test/*.py

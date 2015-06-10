@@ -51,7 +51,7 @@ def centered (mystring, linewidth=79, fill=" "):
     return newstring
 
 def clock_on_right(mystring):
-    '''Takes a string, and prints it with the clock right aligned'''
+    '''Takes a string, and prints it with the time right aligned'''
     taken = length_no_ansi(mystring)
     padding = 79 - taken - 5
     clock = time.strftime("%I:%M", time.localtime())
