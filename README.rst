@@ -43,25 +43,25 @@ query_yes_no(question, default="yes")
 `````````````````````````````````````
 Ask a yes/no question via raw_input() and return their answer.
 
- - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no" or None (meaning an answer is required of the user).
- - The "answer" return value is one of "yes" or "no".
+- "question" is a string that is presented to the user.
+- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no" or None (meaning an answer is required of the user).
+- The "answer" return value is one of "yes" or "no".
 
 query_yes_no_all(question, default="yes")
 `````````````````````````````````````````
 Ask a yes/no/all question via raw_input() and return their answer.
 
- - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no", "all" or None (meaning an answer is required of the user).
- - The "answer" return value is one of "yes", "no", or "all".
+- "question" is a string that is presented to the user.
+- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no", "all" or None (meaning an answer is required of the user).
+- The "answer" return value is one of "yes", "no", or "all".
 
 def query_yes_quit(question, default="quit")
 ````````````````````````````````````````````
 Ask a yes/quit question via raw_input() and return their answer.
 
- - "question" is a string that is presented to the user.
- - "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "quit" or None (meaning an answer is required of the user).
- - The "answer" return value is one of "yes" or "quit".
+- "question" is a string that is presented to the user.
+- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "quit" or None (meaning an answer is required of the user).
+- The "answer" return value is one of "yes" or "quit".
 
 wait(sec)
 `````````
@@ -84,7 +84,7 @@ This class is used to create and then update a 'progress bar', like:
 
 .. code-block:: shell
 
-    [================>                                                      ] 17 / 70
+[================>                                                      ] 17 / 70
 
 
 progressbar(current=0, maximum=100, bar_color=colorama.Fore.GREEN)
