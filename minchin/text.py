@@ -199,8 +199,13 @@ class progressbar:
             self.current = max(currently, 0)
         filled = float(self.current) / float(self.maximum) * float(self.length)
         filled = int(filled)
+        filled_str = ''
+        if filled == self.length:
+            filled_str = '='*filled
+        elif filled > 0 :
+            filled_str = '='*(filled-1) + '>'
         unfilled = self.length - filled
-        mystring = "[" + self.color + "="*filled + " "*unfilled + self.reset_color + "] " + str(self.current).rjust(len(str(self.maximum))) + " / " + str(self.maximum)
+        mystring = "[" + self.color + filled_str + " "*unfilled + self.reset_color + "] " + str(self.current).rjust(len(str(self.maximum))) + " / " + str(self.maximum)
         sys.stdout.write('\r' + mystring + '\r')
 
     def reset(self):
