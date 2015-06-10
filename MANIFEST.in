@@ -1,4 +1,4 @@
-include wmtext.py
-include README.md
-include HISTORY.md
+include minchin/text.py
+include README.rst
+include CHANGELOG.md
 include LICENSE

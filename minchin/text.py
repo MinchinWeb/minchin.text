@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-'''WMText
-v.4.4 - WM - October 26, 2014
+'''Minchin.Text
+v.5.0 - WM - June 10, 2015
 
 This is a helper file, containing formatting helps for creating command line
 programs.
@@ -13,7 +13,7 @@ import time
 import re
 import colorama
 
-__version__ = '4.4.0'
+__version__ = '5.0.0'
 
 # Fix Python 2.x.
 try:

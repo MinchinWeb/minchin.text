@@ -4,7 +4,7 @@ import time
 import colorama
 colorama.init()
 
-import wmtext
+from minchin import text as wmtext
 
 bar = wmtext.progressbar()
 for i in range(0,101):
