@@ -1,3 +1,8 @@
+v 5.0 [2015-06-10]
+==================
+ - move package to `minchin.text`
+ - add tests for `minchin.text.centered()`
+
 v 4.4 [2014-10-26]
 ==================
  - typographic changes to allow wmtext to work in Python 3
