@@ -71,8 +71,8 @@ def query_yes_no(question, default="yes"):
     http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
     '''
     valid = {"yes":True,   "y":True,  "ye":True,
-             "no":False,     "n":False}
-    if default == None:
+             "no":False,   "n":False}
+    if default is None:
         prompt = " [y/n] "
     elif default == "yes":
         prompt = " [Y/n] "
@@ -105,7 +105,7 @@ def query_yes_no_all(question, default="yes"):
     valid = {"yes":1,  "y":1,  "ye":1,
              "no":0,   "n":0,
              "all":2,  "a":2,  "al":2}
-    if default == None:
+    if default is None:
         prompt = " [y/n/a] "
     elif default == "yes":
         prompt = " [Y/n/a] "
@@ -142,7 +142,7 @@ def query_yes_quit(question, default="quit"):
     '''
     valid = {"yes":True,   "y":True,  "ye":True,
              "quit":False,     "q":False}
-    if default == None:
+    if default is None:
         prompt = " [y/q] "
     elif default == "yes":
         prompt = " [Y/q] "
@@ -193,7 +193,7 @@ class progressbar(object):
         self.length = 79 - (len(str(self.maximum)) * 2 + 6)
 
     def update(self, currently=None):
-        if currently == None:
+        if currently is None:
             pass
         else:
             self.current = max(currently, 0)
