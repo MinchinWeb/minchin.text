@@ -179,7 +179,7 @@ def title(mytitle):
 def subtitle(mysubtitle):
     print (colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL)
 
-class progressbar:
+class progressbar(object):
     current = 0
     maximum = 100
     bar_color = colorama.Fore.GREEN
