@@ -43,6 +43,7 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: IronPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        'Topic :: Utilities'
+        'Topic :: Utilities',
+		"Topic :: Software Development :: Libraries :: Python Modules"
         ],
 )
