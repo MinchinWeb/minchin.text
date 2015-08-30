@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''Minchin.Text
-v.5.0.2 - WM - June 15, 2015
+v.5.1.0 - WM - August 29, 2015
 
 This is a helper file, containing formatting helps for creating command line
 programs.
@@ -13,7 +13,7 @@ import time
 import re
 import colorama
 
-__version__ = '5.0.2'
+__version__ = '5.1.0'
 
 # Fix Python 2.x.
 try:
@@ -220,6 +220,22 @@ class progressbar(object):
 
     def reset(self):
         self.current = 0
+
+
+def version_number_str(major, minor=0, patch=0, prerelease=None, build=None):
+    """Takes the parts of a semantic version number, and returns a nicely formatted string"""
+    version = str(major) + '.' + str(minor) + '.' + str(patch)
+    if prerelease:
+        if prerelease.startswith('-'):
+            version = version + prerelease
+        else:
+            version = version + "-" + str(prerelease)
+    if build:
+        if build.startswith('+'):
+            version = version + build
+        else:
+            version = version + "+" + str(build)
+    return(version)
 
 
 # To-Do:
