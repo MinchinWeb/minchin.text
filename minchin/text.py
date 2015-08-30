@@ -21,7 +21,7 @@ try:
 except NameError:
     pass
 
-#term colour control codes
+#  term colour control codes
 re_ansi_control_codes = re.compile(r'\033\[[017](;[034][0-9])*m|\x1b\[[034][0-9]*m')
 
 # The regex patterns are intended only to match web URLs -- http,
@@ -33,6 +33,7 @@ re_weburl = re.compile(r'(?i)\b((?:https?:(?:/{1,3}|[a-z0-9%])|[a-z0-9.\-]+[.](?
 # including "mailto:foo@example.com", "x-whatever://foo", etc
 re_allurl = re.compile(r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
 
+
 def length_no_ansi(mystring):
     '''Takes a string, strips out the ANSI escape codes
     (used for colouring terminal output, etc.), and returns
@@ -40,22 +41,25 @@ def length_no_ansi(mystring):
     newstring = re.sub(re_ansi_control_codes, "", mystring)
     return len(newstring)
 
-def centered (mystring, linewidth=79, fill=" "):
+
+def centered(mystring, linewidth=79, fill=" "):
     '''Takes a string, centres it, and pads it on both sides'''
     sides = (linewidth - length_no_ansi(mystring))//2
-    extra = (linewidth - length_no_ansi(mystring))%2
+    extra = (linewidth - length_no_ansi(mystring)) % 2
     fill = fill[:1]
     sidestring = fill*sides
     extrastring = fill*extra
     newstring = sidestring + mystring + sidestring + extrastring
     return newstring
 
+
 def clock_on_right(mystring):
     '''Takes a string, and prints it with the time right aligned'''
     taken = length_no_ansi(mystring)
     padding = 79 - taken - 5
     clock = time.strftime("%I:%M", time.localtime())
-    print (mystring + " "*padding + clock)
+    print(mystring + " "*padding + clock)
+
 
 def query_yes_no(question, default="yes"):
     '''Ask a yes/no question via raw_input() and return their answer.
@@ -70,8 +74,8 @@ def query_yes_no(question, default="yes"):
     Copied from
     http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
     '''
-    valid = {"yes":True,   "y":True,  "ye":True,
-             "no":False,   "n":False}
+    valid = {"yes": True,   "y": True,  "ye": True,
+             "no": False,   "n": False}
     if default is None:
         prompt = " [y/n] "
     elif default == "yes":
@@ -89,8 +93,9 @@ def query_yes_no(question, default="yes"):
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write("Please respond with 'yes' or 'no' "\
+            sys.stdout.write("Please respond with 'yes' or 'no' "
                              "(or 'y' or 'n').\n")
+
 
 def query_yes_no_all(question, default="yes"):
     '''Ask a yes/no/all question via raw_input() and return their answer.
@@ -102,9 +107,9 @@ def query_yes_no_all(question, default="yes"):
 
     The "answer" return value is one of "yes", "no", or "all".
     '''
-    valid = {"yes":1,  "y":1,  "ye":1,
-             "no":0,   "n":0,
-             "all":2,  "a":2,  "al":2}
+    valid = {"yes": 1,  "y": 1,  "ye": 1,
+             "no": 0,   "n": 0,
+             "all": 2,  "a": 2,  "al": 2}
     if default is None:
         prompt = " [y/n/a] "
     elif default == "yes":
@@ -124,8 +129,9 @@ def query_yes_no_all(question, default="yes"):
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write("Please respond with 'yes', 'no', or 'all' "\
-                             "(or 'y', 'n' or 'a').\n")
+            sys.stdout.write("Please respond with 'yes', 'no', or 'all' "
+                             "(or 'y', 'n', or 'a').\n")
+
 
 def query_yes_quit(question, default="quit"):
     '''Ask a yes/quit question via raw_input() and return their answer.
@@ -136,12 +142,12 @@ def query_yes_quit(question, default="quit"):
         an answer is required of the user).
 
     The "answer" return value is one of "yes" or "quit".
-    
+
     Modified from
     http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
     '''
-    valid = {"yes":True,   "y":True,  "ye":True,
-             "quit":False,     "q":False}
+    valid = {"yes": True,   "y": True,  "ye": True,
+             "quit": False,     "q": False}
     if default is None:
         prompt = " [y/q] "
     elif default == "yes":
@@ -159,8 +165,9 @@ def query_yes_quit(question, default="quit"):
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write("Please respond with 'yes' or 'quit' "\
+            sys.stdout.write("Please respond with 'yes' or 'quit' "
                              "(or 'y' or 'q').\n")
+
 
 def wait(sec):
     '''
@@ -168,16 +175,19 @@ def wait(sec):
     and then clears the line when the timer is done
     '''
     while sec > 0:
-        sys.stdout.write('\r' + str(sec//60).zfill(1) + ":" + str(sec%60).zfill(2) + '     ')
+        sys.stdout.write('\r' + str(sec//60).zfill(1) + ":" + str(sec % 60).zfill(2) + '     ')
         sec -= 1
         time.sleep(1)
         sys.stdout.write('\r' + '           ' + '\r')
 
+
 def title(mytitle):
-    print (colorama.Style.BRIGHT + colorama.Fore.YELLOW + colorama.Back.BLUE + centered(mytitle) + colorama.Style.RESET_ALL)
+    print(colorama.Style.BRIGHT + colorama.Fore.YELLOW + colorama.Back.BLUE + centered(mytitle) + colorama.Style.RESET_ALL)
+
 
 def subtitle(mysubtitle):
-    print (colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL)
+    print(colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL)
+
 
 class progressbar(object):
     current = 0
@@ -186,7 +196,7 @@ class progressbar(object):
     reset_color = colorama.Style.RESET_ALL
     lenght = 79
 
-    def __init__ (self, current=0, maximum=100, bar_color=colorama.Fore.GREEN):
+    def __init__(self, current=0, maximum=100, bar_color=colorama.Fore.GREEN):
         self.current = max(min(current, maximum), 0)
         self.maximum = max(max(current, maximum), 0.000001)  # something slightly above zero
         self.color = bar_color
@@ -202,7 +212,7 @@ class progressbar(object):
         filled_str = ''
         if filled == self.length:
             filled_str = '='*filled
-        elif filled > 0 :
+        elif filled > 0:
             filled_str = '='*(filled-1) + '>'
         unfilled = self.length - filled
         mystring = "[" + self.color + filled_str + " "*unfilled + self.reset_color + "] " + str(self.current).rjust(len(str(self.maximum))) + " / " + str(self.maximum)
