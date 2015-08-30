@@ -9,6 +9,7 @@
 dist
 build
 eggs
+.eggs/*
 parts
 bin
 var
@@ -36,4 +37,4 @@ nosetests.xml
 .pydevproject
 
 # virtualenv
-env/
+env*/
