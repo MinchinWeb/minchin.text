@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": ["build", "dist", "__pycache__", "env*", "*.egg-info"]
+		}
+	],
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true
+}
