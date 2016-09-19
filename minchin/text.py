@@ -175,18 +175,21 @@ def wait(sec):
     and then clears the line when the timer is done
     '''
     while sec > 0:
-        sys.stdout.write('\r' + str(sec//60).zfill(1) + ":" + str(sec % 60).zfill(2) + '     ')
+        sys.stdout.write('\r' + str(sec//60).zfill(1) + ":" +
+                         str(sec % 60).zfill(2) + '     ')
         sec -= 1
         time.sleep(1)
         sys.stdout.write('\r' + '           ' + '\r')
 
 
 def title(mytitle):
-    print(colorama.Style.BRIGHT + colorama.Fore.YELLOW + colorama.Back.BLUE + centered(mytitle) + colorama.Style.RESET_ALL)
+    print(colorama.Style.BRIGHT + colorama.Fore.YELLOW + colorama.Back.BLUE +
+          centered(mytitle) + colorama.Style.RESET_ALL)
 
 
 def subtitle(mysubtitle):
-    print(colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL)
+    print(colorama.Style.BRIGHT + centered(mysubtitle) +
+          colorama.Style.RESET_ALL)
 
 
 class progressbar(object):
@@ -198,7 +201,8 @@ class progressbar(object):
 
     def __init__(self, current=0, maximum=100, bar_color=colorama.Fore.GREEN):
         self.current = max(min(current, maximum), 0)
-        self.maximum = max(max(current, maximum), 0.000001)  # something slightly above zero
+        # something slightly above zero
+        self.maximum = max(max(current, maximum), 0.000001)
         self.color = bar_color
         self.length = 79 - (len(str(self.maximum)) * 2 + 6)
 
@@ -215,7 +219,10 @@ class progressbar(object):
         elif filled > 0:
             filled_str = '='*(filled-1) + '>'
         unfilled = self.length - filled
-        mystring = "[" + self.color + filled_str + " "*unfilled + self.reset_color + "] " + str(self.current).rjust(len(str(self.maximum))) + " / " + str(self.maximum)
+        mystring = "[" + self.color + filled_str + " "*unfilled + \
+                   self.reset_color + "] " + \
+                   str(self.current).rjust(len(str(self.maximum))) + " / " + \
+                   str(self.maximum)
         sys.stdout.write('\r' + mystring + '\r')
 
     def reset(self):
@@ -223,7 +230,10 @@ class progressbar(object):
 
 
 def version_number_str(major, minor=0, patch=0, prerelease=None, build=None):
-    """Takes the parts of a semantic version number, and returns a nicely formatted string"""
+    """
+    Takes the parts of a semantic version number, and returns a nicely
+    formatted string.
+    """
     version = str(major) + '.' + str(minor) + '.' + str(patch)
     if prerelease:
         if prerelease.startswith('-'):
