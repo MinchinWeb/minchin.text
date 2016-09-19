@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''Minchin.Text
-v.5.1.0 - WM - August 29, 2015
+v.5.1.0-dev - WM - September 19, 2016
 
 This is a helper file, containing formatting helps for creating command line
 programs.
@@ -12,8 +12,9 @@ import sys
 import time
 import re
 import colorama
+from collections import namedtuple
 
-__version__ = '5.1.0'
+__version__ = '5.1.0-dev.2'
 
 # Fix Python 2.x.
 try:
@@ -246,6 +247,31 @@ def version_number_str(major, minor=0, patch=0, prerelease=None, build=None):
         else:
             version = version + "+" + str(build)
     return(version)
+
+
+def get_terminal_size():
+    """Returns terminal dimensions
+    :return: Returns ``(width, height)``.  If there's no terminal
+             to be found, we'll just return ``(80, 24)``.
+    """
+    try:
+        # shutil.get_terminal_size was added to the standard
+        # library in Python 3.3
+        try:
+            from shutil import get_terminal_size as _get_terminal_size  # pylint: disable=no-name-in-module
+        except ImportError:
+            from backports.shutil_get_terminal_size import get_terminal_size as _get_terminal_size  # pylint: disable=import-error
+
+        sz = _get_terminal_size()
+    except ValueError:
+        """
+        This can result from the 'underlying buffer being detached', which
+        occurs during running the unittest on Windows (but not on Linux?)
+        """
+        terminal_size = namedtuple('Terminal_Size', 'columns lines')
+        sz = terminal_size(80, 24)
+
+    return sz
 
 
 # To-Do:

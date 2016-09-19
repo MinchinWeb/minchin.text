@@ -30,6 +30,11 @@ setup(
     install_requires=[
         "colorama >= 0.2.5"
         ],
+    extras_require={
+        ':python_version=="2.6"': ['backports.shutil_get_terminal_size>=1.0.0'],
+        ':python_version=="2.7"': ['backports.shutil_get_terminal_size>=1.0.0'],
+        ':python_version=="3.2"': ['backports.shutil_get_terminal_size>=1.0.0'],
+        },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
