@@ -8,12 +8,13 @@ This is a helper file, containing formatting helps for creating command line
 programs.
 '''
 from __future__ import division
+
+import re
 import sys
 import time
-import re
-import colorama
 from collections import namedtuple
 
+import colorama
 
 __title__ = "minchin.text"
 __version__ = '5.1.0-dev.2'
