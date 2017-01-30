@@ -1,0 +1,11 @@
+releaser:
+  module_name: minchin.text
+  here: .
+  docs: None
+  test: None
+  source: minchin
+  changelog: CHANGELOG.md
+  version: minchin\text.py
+  test_command: "green -kq"
+  version_bump: none
+

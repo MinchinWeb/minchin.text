@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-'''Minchin.Text
-v.5.1.0-dev - WM - September 19, 2016
+'''
+Minchin.Text
 
 This is a helper file, containing formatting helps for creating command line
 programs.
@@ -14,7 +14,15 @@ import re
 import colorama
 from collections import namedtuple
 
+
+__title__ = "minchin.text"
 __version__ = '5.1.0-dev.2'
+__description__ = "Python library for text formatting on the command line."
+__author__ = "William Minchin"
+__email__ = "w_minchin@hotmail.com"
+__url__ = "https://github.com/MinchinWeb/minchin.text"
+__license__ = "MIT License"
+
 
 # Fix Python 2.x.
 try:
