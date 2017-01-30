@@ -4,7 +4,6 @@ v 5.1.0 [2017-01-29]
 - fix progressbar bug where "overfull" bars would go on to multiple lines
 - add `get_terminal_size()`
 - upgrade release machinery
-- remove `re_weburl`
 
 v 5.0 [2015-06-10]
 ==================
