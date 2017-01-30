@@ -1,3 +1,8 @@
+v 5.1 [unreleased]
+==================
+- `minchin.text.progressbar()` will only print (by default) every 0.1 seconds
+- fix progressbar bug where "overfull" bars would go on to multiple lines
+
 v 5.0 [2015-06-10]
 ==================
 - move package to `minchin.text`

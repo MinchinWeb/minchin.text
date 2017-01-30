@@ -16,6 +16,7 @@ def get_version(filename="minchin/text.py"):
             if m:
                 return m.group(1)
 
+
 setup(
     name="minchin.text",
     version=get_version(),

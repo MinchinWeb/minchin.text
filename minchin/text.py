@@ -199,32 +199,42 @@ class progressbar(object):
     bar_color = colorama.Fore.GREEN
     reset_color = colorama.Style.RESET_ALL
     lenght = 79
+    last_time = 0
+    time_interval = 0.1  # in seconds
 
-    def __init__(self, current=0, maximum=100, bar_color=colorama.Fore.GREEN):
+    def __init__(self, current=0, maximum=100, bar_color=colorama.Fore.GREEN,
+                 time_interval=0.1):
         self.current = max(min(current, maximum), 0)
         # something slightly above zero
         self.maximum = max(max(current, maximum), 0.000001)
         self.color = bar_color
         self.length = 79 - (len(str(self.maximum)) * 2 + 6)
+        self.time_interval = time_interval
 
-    def update(self, currently=None):
-        if currently is None:
-            pass
-        else:
+    def update(self, currently=None, ignore_interval=False):
+        #print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
+        # update counter
+        if currently is not None:
             self.current = max(currently, 0)
-        filled = float(self.current) / float(self.maximum) * float(self.length)
-        filled = int(filled)
-        filled_str = ''
-        if filled == self.length:
-            filled_str = '='*filled
-        elif filled > 0:
-            filled_str = '='*(filled-1) + '>'
-        unfilled = self.length - filled
-        mystring = "[" + self.color + filled_str + " "*unfilled + \
-                   self.reset_color + "] " + \
-                   str(self.current).rjust(len(str(self.maximum))) + " / " + \
-                   str(self.maximum)
-        sys.stdout.write('\r' + mystring + '\r')
+
+        # update counter only if enough time has passed
+        if (self.current == self.maximum) or not ignore_interval and \
+                ((time.time() - self.last_time) > self.time_interval):
+
+            filled = float(self.current) / float(self.maximum) * float(self.length)
+            filled = min(int(filled), self.length)
+            filled_str = ''
+            if filled == self.length:
+                filled_str = '='*filled
+            elif filled > 0:
+                filled_str = '='*(filled-1) + '>'
+            unfilled = self.length - filled
+            mystring = "[" + self.color + filled_str + " "*unfilled + \
+                       self.reset_color + "] " + \
+                       str(self.current).rjust(len(str(self.maximum))) + " / " + \
+                       str(self.maximum)
+            sys.stdout.write('\r' + mystring + '\r')
+            self.last_time = time.time()
 
     def reset(self):
         self.current = 0
