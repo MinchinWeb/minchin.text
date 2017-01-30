@@ -17,7 +17,7 @@ from collections import namedtuple
 import colorama
 
 __title__ = 'minchin.text'
-__version__ = '5.1.0-dev.2'
+__version__ = "5.1.0"
 __description__ = "Python library for text formatting on the command line."
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"

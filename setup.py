@@ -1,16 +1,16 @@
 import codecs
 import os
 import re
+from pathlib import Path
 
 import setuptools
 
 
-here = os.path.abspath(os.path.dirname(__file__))
+here = Path(__file__).resolve().parent
 
 
 def read(*parts):
-    # intentionally *not* adding an encoding option to open
-    return codecs.open(os.path.join(here, *parts), 'r').read()
+    return codecs.open(os.path.join(here, *parts), 'r', encoding="UTF-8").read()
 
 
 def find_meta(*meta_file_parts, meta_key):
@@ -33,7 +33,8 @@ META_PATH = ['minchin', 'text.py']
 NAME         = find_meta(*META_PATH, meta_key='title').lower()
 VERSION      = find_meta(*META_PATH, meta_key='version')
 SHORT_DESC   = find_meta(*META_PATH, meta_key='description')
-LONG_DESC    = "\n\n".join([open(os.path.join(base_dir, "README.rst")).read(), open(os.path.join(base_dir,"CHANGELOG.md")).read()]),
+LONG_DESC    = "\n\n".join([(here / "README.rst").open().read(),
+                           (here / "CHANGELOG.md").open().read()])
 AUTHOR       = find_meta(*META_PATH, meta_key='author')
 AUTHOR_EMAIL = find_meta(*META_PATH, meta_key='email')
 URL          = find_meta(*META_PATH, meta_key='url')
