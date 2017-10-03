@@ -3,7 +3,7 @@ minchin.text
 
 Python library for text formatting on the command line.
 
-Avaiable Data
+Available Data
 -------------
 
 \_\_version\_\_
@@ -31,9 +31,9 @@ Takes a string, strips out the ANSI escape codes
 (used for colouring terminal output, etc.), and returns
 the length of the resulting string
 
-centered (mystring, linewidth=79, fill=" ")
-```````````````````````````````````````````
-Takes a string, centres it, and pads it on both sides
+centered (mystring, linewidth=None, fill=" ")
+`````````````````````````````````````````````
+Takes a string, centres it, and pads it on both sides. Default ``linewidth`` is one less than the console width.
 
 clock_on_right(mystring)
 ````````````````````````
@@ -84,7 +84,7 @@ This class is used to create and then update a 'progress bar', like:
 
 .. code-block:: shell
 
-[================>                                                      ] 17 / 70
+[================>                                                    ] 17 / 70
 
 
 progressbar(current=0, maximum=100, bar_color=colorama.Fore.GREEN)

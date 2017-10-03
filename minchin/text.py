@@ -7,7 +7,7 @@ Minchin.Text
 This is a helper file, containing formatting helps for creating command line
 programs.
 '''
-from __future__ import division
+from __future__ import division, print_function
 
 import re
 import sys
@@ -17,7 +17,7 @@ from collections import namedtuple
 import colorama
 
 __title__ = 'minchin.text'
-__version__ = "5.1.0"
+__version__ = "5.1.1"
 __description__ = "Python library for text formatting on the command line."
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
@@ -52,8 +52,10 @@ def length_no_ansi(mystring):
     return len(newstring)
 
 
-def centered(mystring, linewidth=79, fill=" "):
+def centered(mystring, linewidth=None, fill=" "):
     '''Takes a string, centres it, and pads it on both sides'''
+    if linewidth is None:
+        linewidth = get_terminal_size().columns - 1
     sides = (linewidth - length_no_ansi(mystring))//2
     extra = (linewidth - length_no_ansi(mystring)) % 2
     fill = fill[:1]
@@ -66,7 +68,7 @@ def centered(mystring, linewidth=79, fill=" "):
 def clock_on_right(mystring):
     '''Takes a string, and prints it with the time right aligned'''
     taken = length_no_ansi(mystring)
-    padding = 79 - taken - 5
+    padding = (get_terminal_size().columns - 1) - taken - 5
     clock = time.strftime("%I:%M", time.localtime())
     print(mystring + " "*padding + clock)
 
@@ -207,7 +209,7 @@ class progressbar(object):
     maximum = 100
     bar_color = colorama.Fore.GREEN
     reset_color = colorama.Style.RESET_ALL
-    lenght = 79
+    length = None
     last_time = 0
     time_interval = 0.1  # in seconds
 
@@ -217,7 +219,7 @@ class progressbar(object):
         # something slightly above zero
         self.maximum = max(max(current, maximum), 0.000001)
         self.color = bar_color
-        self.length = 79 - (len(str(self.maximum)) * 2 + 6)
+        self.length = (get_terminal_size().columns - 1) - (len(str(self.maximum)) * 2 + 6)
         self.time_interval = time_interval
 
     def update(self, currently=None, ignore_interval=False):
