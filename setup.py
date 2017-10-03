@@ -10,7 +10,8 @@ here = Path(__file__).resolve().parent
 
 
 def read(*parts):
-    return codecs.open(os.path.join(here, *parts), 'r', encoding="UTF-8").read()
+    # convert `here` to string for Python versions before 3.6
+    return codecs.open(os.path.join(str(here), *parts), 'r', encoding="UTF-8").read()
 
 
 def find_meta(*meta_file_parts, meta_key):
