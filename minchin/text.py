@@ -163,6 +163,45 @@ def query_yes_no_all(question, default="yes"):
             sys.stdout.write("Please respond with 'yes', 'no', or 'all' "
                              "(or 'y', 'n', or 'a').\n")
 
+def query_yes_no_all_none(question, default="yes"):
+    '''Ask a yes/no/all/none question via raw_input() and return their answer.
+
+    "question" is a string that is presented to the user.
+    "default" is the presumed answer if the user just hits <Enter>.
+        It must be "yes" (the default), "no", "all", "none" (the string) or
+        None (meaning an answer is required of the user).
+
+    The return value is one of Answers.YES, Answers.NO, Answers.ALL or
+        Answers.NONE.
+    '''
+    valid = {"yes": Answers.YES,   "y": Answers.YES,  "ye": Answers.YES,
+             "no": Answers.NO,     "n": Answers.NO,
+             "all": Answers.ALL,   "a": Answers.ALL,  "al": Answers.ALL,
+             "none": Answers.NONE, "x": Answers.NONE, "non": Answers.NONE}
+    if default is None:
+        prompt = " [y/n/a/x] "
+    elif default == "yes":
+        prompt = " [Y/n/a/x] "
+    elif default == "no":
+        prompt = " [y/N/a/x] "
+    elif default == "all":
+        prompt = " [y/n/A/x] "
+    elif default == "none":
+        prompt = " [y/n/a/X] "
+    else:
+        raise ValueError("invalid default answer: '%s'" % default)
+
+    while True:
+        sys.stdout.write(question + prompt)
+        choice = input().lower()
+        if default is not None and choice == '':
+            return valid[default]
+        elif choice in valid:
+            return valid[choice]
+        else:
+            sys.stdout.write("Please respond with 'yes', 'no', 'all', or "
+                             "'none' (or 'y', 'n', 'a', or 'x').\n")
+
 
 def query_yes_quit(question, default="quit"):
     '''Ask a yes/quit question via raw_input() and return their answer.
