@@ -2,6 +2,7 @@
   `Answer.QUIT`, `Answer.ALL`, or `Answer.NONE`, as appropriate. `YES` and
   `ALL` are "Truth-y", while `NO`, `QUIT`, and `NONE` are "False-y"
 - added `query_yes_no_all_none()`
+- added `rainbow_print()` to print strings in all the colours!
 
 
 v 5.1.1 [2017-10-03]

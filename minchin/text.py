@@ -63,6 +63,17 @@ class Answers(Enum):
             return False
         elif self.value in [1, 3]:
             return True
+
+
+COLOUR_CYCLE = [colorama.Fore.RED,
+                # orange
+                colorama.Fore.YELLOW,
+                colorama.Fore.GREEN,
+                colorama.Fore.BLUE,
+                colorama.Fore.CYAN,
+                colorama.Fore.MAGENTA]
+
+
 def length_no_ansi(mystring):
     '''Takes a string, strips out the ANSI escape codes
     (used for colouring terminal output, etc.), and returns
@@ -260,6 +271,16 @@ def title(mytitle):
 def subtitle(mysubtitle):
     print(colorama.Style.BRIGHT + centered(mysubtitle) +
           colorama.Style.RESET_ALL)
+
+
+def rainbow_print(text, offset=0):
+    new_text = ''
+    cycle_length = len(COLOUR_CYCLE)
+    for i in range(len(text)):
+        color_code = COLOUR_CYCLE[(i + offset) % cycle_length]
+        new_text = new_text + color_code + text[i]
+    new_text = new_text + colorama.Style.RESET_ALL
+    print(new_text)
 
 
 class progressbar(object):

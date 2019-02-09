@@ -103,6 +103,11 @@ subtitle(mysubtitle)
 Takes ``mysubtitle``, centers it, and prints it in bright (white) letters on a
 normal (black) background.
 
+rainbow_print(text, offset=0)
+```````````````````
+Prints out ``text`` and prints it in a cycle of rainbow colors!
+
+
 progressbar (class)
 -------------------
 
