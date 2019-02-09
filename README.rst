@@ -4,7 +4,7 @@ minchin.text
 Python library for text formatting on the command line.
 
 Available Data
--------------
+---------------
 
 \_\_version\_\_
 ```````````````
@@ -79,7 +79,7 @@ Ask a yes/quit question via raw_input() and return their answer.
 - Returns one of Answer.YES or Answer.QUIT
 
 query_yes_no_all_none(question, default="yes")
-`````````````````````````````````````````
+``````````````````````````````````````````````
 Ask a yes/no/all/none question via raw_input() and return their answer.
 
 - "question" is a string that is presented to the user.
@@ -104,7 +104,7 @@ Takes ``mysubtitle``, centers it, and prints it in bright (white) letters on a
 normal (black) background.
 
 rainbow_print(text, offset=0)
-```````````````````
+`````````````````````````````
 Prints out ``text`` and prints it in a cycle of rainbow colors!
 
 
@@ -115,7 +115,7 @@ This class is used to create and then update a 'progress bar', like:
 
 .. code-block:: shell
 
-[================>                                                    ] 17 / 70
+    [================>                                                    ] 17 / 70
 
 
 progressbar(current=0, maximum=100, bar_color=colorama.Fore.GREEN)
