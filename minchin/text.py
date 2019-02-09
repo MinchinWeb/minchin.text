@@ -13,6 +13,7 @@ import re
 import sys
 import time
 from collections import namedtuple
+from enum import Enum
 
 import colorama
 
@@ -44,6 +45,24 @@ re_weburl = re.compile(r'(?i)\b((?:https?:(?:/{1,3}|[a-z0-9%])|[a-z0-9.\-]+[.](?
 re_allurl = re.compile(r'(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))')
 
 
+class Answers(Enum):
+    '''
+    Possibles answers to queries.
+
+    YES and ALL are "Truth-y", while NO, QUIT, and NONE are "False-y".
+    '''
+
+    NO = 0
+    YES = 1
+    QUIT = 2
+    ALL = 3
+    NONE = 4
+
+    def __bool__(self):
+        if self.value in [0, 2, 4]:
+            return False
+        elif self.value in [1, 3]:
+            return True
 def length_no_ansi(mystring):
     '''Takes a string, strips out the ANSI escape codes
     (used for colouring terminal output, etc.), and returns
@@ -81,13 +100,13 @@ def query_yes_no(question, default="yes"):
         It must be "yes" (the default), "no" or None (meaning
         an answer is required of the user).
 
-    The "answer" return value is one of "yes" or "no".
+    The return value is one of Answers.YES or Answers.NO.
 
-    Copied from
+    Copied (and modified) from
     http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
     '''
-    valid = {"yes": True,   "y": True,  "ye": True,
-             "no": False,   "n": False}
+    valid = {"yes": Answers.YES, "y": Answers.YES,  "ye": Answers.YES,
+             "no": Answers.NO,   "n": Answers.NO}
     if default is None:
         prompt = " [y/n] "
     elif default == "yes":
@@ -117,11 +136,11 @@ def query_yes_no_all(question, default="yes"):
         It must be "yes" (the default), "no", "all" or None (meaning
         an answer is required of the user).
 
-    The "answer" return value is one of "yes", "no", or "all".
+    Return value is one of Answers.YES, Answers.NO, or Answers.ALL.
     '''
-    valid = {"yes": 1,  "y": 1,  "ye": 1,
-             "no": 0,   "n": 0,
-             "all": 2,  "a": 2,  "al": 2}
+    valid = {"yes": Answers.YES,  "y": Answers.YES,  "ye": Answers.YES,
+             "no": Answers.NO,   "n": Answers.NO,
+             "all": Answers.ALL,  "a": Answers.ALL,  "al": Answers.ALL}
     if default is None:
         prompt = " [y/n/a] "
     elif default == "yes":
@@ -158,8 +177,8 @@ def query_yes_quit(question, default="quit"):
     Modified from
     http://stackoverflow.com/questions/3041986/python-command-line-yes-no-input
     '''
-    valid = {"yes": True,   "y": True,  "ye": True,
-             "quit": False,     "q": False}
+    valid = {"yes": Answers.YES,   "y": Answers.YES,  "ye": Answers.YES,
+             "quit": Answers.QUIT, "q": Answers.QUIT}
     if default is None:
         prompt = " [y/q] "
     elif default == "yes":

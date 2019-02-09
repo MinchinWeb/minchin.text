@@ -1,3 +1,8 @@
+- [BREAKING CHANGE] queries now return one of `Answer.YES`, `Answer.NO`,
+  `Answer.QUIT`, `Answer.ALL`, or `Answer.NONE`, as appropriate. `YES` and
+  `ALL` are "Truth-y", while `NO`, `QUIT`, and `NONE` are "False-y"
+
+
 v 5.1.1 [2017-10-03]
 ====================
 

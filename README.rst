@@ -20,7 +20,15 @@ Compiled regex pattern for web URL's -- http, https, and naked domains like "exa
 
 re_allurl
 `````````
-Compiled regex pattern to match all URL's, including "mailto:foo@example.com", "x-whatever://foo", etc.
+Compiled regex pattern to match all URL's, including "mailto:foo@example.com",
+"x-whatever://foo", etc.
+
+Answers
+```````
+An Enum containing the possible query answers. Current contains ``YES``,
+``NO``, ``QUIT``, ``ALL``, and ``NONE``. ``YES`` and ``ALL`` are "truth-y"
+while ``NO``, ``QUIT``, and ``NONE`` are "false-y".
+
 
 Available Commands
 ------------------
@@ -33,7 +41,8 @@ the length of the resulting string
 
 centered (mystring, linewidth=None, fill=" ")
 `````````````````````````````````````````````
-Takes a string, centres it, and pads it on both sides. Default ``linewidth`` is one less than the console width.
+Takes a string, centres it, and pads it on both sides. Default ``linewidth`` is
+one less than the console width.
 
 clock_on_right(mystring)
 ````````````````````````
@@ -44,24 +53,40 @@ query_yes_no(question, default="yes")
 Ask a yes/no question via raw_input() and return their answer.
 
 - "question" is a string that is presented to the user.
-- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no" or None (meaning an answer is required of the user).
-- The "answer" return value is one of "yes" or "no".
+- "default" is the presumed answer if the user just hits <Enter>. It must be
+  "yes" (the default), "no" or None (meaning an answer is required of the
+  user).
+- Returns one of Answer.YES or Answer.NO
 
 query_yes_no_all(question, default="yes")
 `````````````````````````````````````````
 Ask a yes/no/all question via raw_input() and return their answer.
 
 - "question" is a string that is presented to the user.
-- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "no", "all" or None (meaning an answer is required of the user).
-- The "answer" return value is one of "yes", "no", or "all".
+- "default" is the presumed answer if the user just hits <Enter>. It must be
+  "yes" (the default), "no", "all" or None (meaning an answer is required of
+  the user).
+- Returns one of Answer.YES, Answer.NO, or Answer.ALL
 
 def query_yes_quit(question, default="quit")
 ````````````````````````````````````````````
 Ask a yes/quit question via raw_input() and return their answer.
 
 - "question" is a string that is presented to the user.
-- "default" is the presumed answer if the user just hits <Enter>. It must be "yes" (the default), "quit" or None (meaning an answer is required of the user).
-- The "answer" return value is one of "yes" or "quit".
+- "default" is the presumed answer if the user just hits <Enter>. It must be
+  "yes" (the default), "quit" or None (meaning an answer is required of the
+  user).
+- Returns one of Answer.YES or Answer.QUIT
+
+query_yes_no_all_none(question, default="yes")
+`````````````````````````````````````````
+Ask a yes/no/all/none question via raw_input() and return their answer.
+
+- "question" is a string that is presented to the user.
+- "default" is the presumed answer if the user just hits <Enter>. It must be
+  "yes" (the default), "no", "all", "none" (i.e. the string) or None (meaning
+  an answer is required of the user).
+- Returns one of Answer.YES, Answer.NO, Answer.ALL, or Answer.NONE
 
 wait(sec)
 `````````
@@ -70,12 +95,13 @@ and then clears the line when the timer is done.
 
 title(mytitle)
 ``````````````
-Takes 'mytitle', centers it, and prints it in yellow letters on a blue background.
-
+Takes ``mytitle``, centers it, and prints it in yellow letters on a blue
+background.
 
 subtitle(mysubtitle)
 ````````````````````
-Takes 'mysubtitle', centers it, and prints it in bright (white) letters on a normal (black) background.
+Takes ``mysubtitle``, centers it, and prints it in bright (white) letters on a
+normal (black) background.
 
 progressbar (class)
 -------------------
