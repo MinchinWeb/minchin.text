@@ -332,18 +332,25 @@ class progressbar(object):
     length = None
     last_time = 0
     # time_interval = 0.1  # in seconds
+    # stream = sys.stdout.write
 
     def __init__(
-        self, current=0, maximum=100, bar_color=colorama.Fore.GREEN, time_interval=0.1
+        self,
+        current=0,
+        maximum=100,
+        bar_color=colorama.Fore.GREEN,
+        time_interval=0.1,
+        stream=sys.stdout.write,
     ):
         self.current = max(min(current, maximum), 0)
         # something slightly above zero
         self.maximum = max(max(current, maximum), 0.000001)
         self.color = bar_color
         self.length = (get_terminal_size().columns - 1) - (
-            len(str(self.maximum)) * 2 + 6
+            len(str(self.maximum)) * 2 + 6 + 1
         )
         self.time_interval = time_interval
+        self.stream = stream
 
     def update(self, currently=None, ignore_interval=False):
         # print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
@@ -352,6 +359,7 @@ class progressbar(object):
             self.current += 1
         else:
             self.current = max(currently, 0)
+
 
         # update counter only if enough time has passed
         if (
@@ -379,7 +387,7 @@ class progressbar(object):
                 + " / "
                 + str(self.maximum)
             )
-            sys.stdout.write("\r" + mystring + "\r")
+            self.stream("\r" + mystring + "\r")
             self.last_time = time.time()
 
     def reset(self):
