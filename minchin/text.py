@@ -370,13 +370,14 @@ class progressbar(object):
 
             filled = float(self.current) / float(self.maximum) * float(self.length)
             filled = min(int(filled), self.length)
-            filled_str = ""
             if filled == self.length:
                 filled_str = "=" * filled
             elif filled > 0:
                 filled_str = "=" * (filled - 1) + ">"
+            else:
+                filled_str = ""
             unfilled = self.length - filled
-            mystring = (
+            my_string = (
                 "["
                 + self.color
                 + filled_str
@@ -387,7 +388,7 @@ class progressbar(object):
                 + " / "
                 + str(self.maximum)
             )
-            self.stream("\r" + mystring + "\r")
+            self.stream("\r" + my_string + "\r")
             self.last_time = time.time()
 
     def reset(self):
