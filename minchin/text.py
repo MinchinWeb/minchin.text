@@ -348,7 +348,9 @@ class progressbar(object):
     def update(self, currently=None, ignore_interval=False):
         # print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
         # update counter
-        if currently is not None:
+        if currently is None:
+            self.current += 1
+        else:
             self.current = max(currently, 0)
 
         # update counter only if enough time has passed
