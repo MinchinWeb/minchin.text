@@ -18,7 +18,7 @@ from enum import Enum
 import colorama
 
 __title__ = "minchin.text"
-__version__ = "6.0.1+dev.1"
+__version__ = "6.0.1"
 __description__ = "Python library for text formatting on the command line."
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
@@ -364,7 +364,6 @@ class progressbar(object):
             len(f"{self.maximum:,}") * 2 + 6 + 1
         )
 
-
     def update(self, currently=None, ignore_interval=False):
         # print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
         # update counter
@@ -372,7 +371,6 @@ class progressbar(object):
             self.current += 1
         else:
             self.current = max(currently, 0)
-
 
         # update counter only if enough time has passed
         if (

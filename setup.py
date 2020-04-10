@@ -36,7 +36,7 @@ NAME = find_meta(*META_PATH, meta_key="title").lower()
 VERSION = find_meta(*META_PATH, meta_key="version")
 SHORT_DESC = find_meta(*META_PATH, meta_key="description")
 LONG_DESC = "\n\n".join(
-    [(here / "README.rst").open().read(), (here / "CHANGELOG.md").open().read()]
+    [(here / "README.rst").open().read(), (here / "CHANGELOG.rst").open().read()]
 )
 AUTHOR = find_meta(*META_PATH, meta_key="author")
 AUTHOR_EMAIL = find_meta(*META_PATH, meta_key="email")
@@ -130,6 +130,7 @@ setuptools.setup(
     author_email=AUTHOR_EMAIL,
     description=SHORT_DESC,
     long_description=LONG_DESC,
+    long_description_content_type="text/x-rst",
     packages=PACKAGES,
     package_data={"": ["README.rst", "LICENSE"]},
     include_package_data=True,
