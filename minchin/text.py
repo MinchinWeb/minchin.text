@@ -18,7 +18,7 @@ from enum import Enum
 import colorama
 
 __title__ = "minchin.text"
-__version__ = "6.0.1+dev"
+__version__ = "6.0.1+dev.1"
 __description__ = "Python library for text formatting on the command line."
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
@@ -343,14 +343,27 @@ class progressbar(object):
         stream=sys.stdout.write,
     ):
         self.current = max(min(current, maximum), 0)
-        # something slightly above zero
-        self.maximum = max(max(current, maximum), 0.000001)
+        self.maximum = maximum
         self.color = bar_color
-        self.length = (get_terminal_size().columns - 1) - (
-            len(str(self.maximum)) * 2 + 6 + 1
-        )
+        self.length = self._calc_length()
         self.time_interval = time_interval
         self.stream = stream
+
+    @property
+    def maximum(self):
+        return self._maximum
+
+    @maximum.setter
+    def maximum(self, value):
+        # something slightly above zero
+        self._maximum = max(max(self.current, value), 0.000001)
+        self._calc_length()
+
+    def _calc_length(self):
+        self.length = (get_terminal_size().columns - 1) - (
+            len(f"{self.maximum:,}") * 2 + 6 + 1
+        )
+
 
     def update(self, currently=None, ignore_interval=False):
         # print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
@@ -384,9 +397,9 @@ class progressbar(object):
                 + " " * unfilled
                 + self.reset_color
                 + "] "
-                + str(self.current).rjust(len(str(self.maximum)))
+                + f"{self.current:,}".rjust(len(f"{self.maximum:,}"))
                 + " / "
-                + str(self.maximum)
+                + f"{self.maximum:,}"
             )
             self.stream("\r" + my_string + "\r")
             self.last_time = time.time()
