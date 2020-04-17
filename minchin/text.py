@@ -130,11 +130,11 @@ def query_yes_no(question, default="yes"):
         "n": Answers.NO,
     }
     if default is None:
-        prompt = " [y/n] "
+        prompt = " [(y)es / (n)o] "
     elif default == "yes":
-        prompt = " [Y/n] "
+        prompt = " [(Y)es / (n)o] "
     elif default == "no":
-        prompt = " [y/N] "
+        prompt = " [(y)es / (N)o] "
     else:
         raise ValueError("invalid default answer: '%s'" % default)
 
@@ -146,7 +146,7 @@ def query_yes_no(question, default="yes"):
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write("Please respond with 'yes' or 'no' " "(or 'y' or 'n').\n")
+            sys.stdout.write("Please respond with 'yes' or 'no' (or 'y' or 'n').\n")
 
 
 def query_yes_no_all(question, default="yes"):
@@ -170,13 +170,13 @@ def query_yes_no_all(question, default="yes"):
         "al": Answers.ALL,
     }
     if default is None:
-        prompt = " [y/n/a] "
+        prompt = " [(y)es / (n)o / (a)ll] "
     elif default == "yes":
-        prompt = " [Y/n/a] "
+        prompt = " [(Y)es / (n)o / (a)ll] "
     elif default == "no":
-        prompt = " [y/N/a] "
+        prompt = " [(y)es / (N)o / (a)ll] "
     elif default == "all":
-        prompt = " [y/n/A] "
+        prompt = " [(y)es / (n)o / (A)ll] "
     else:
         raise ValueError("invalid default answer: '%s'" % default)
 
@@ -189,7 +189,7 @@ def query_yes_no_all(question, default="yes"):
             return valid[choice]
         else:
             sys.stdout.write(
-                "Please respond with 'yes', 'no', or 'all' " "(or 'y', 'n', or 'a').\n"
+                "Please respond with 'yes', 'no', or 'all' (or 'y', 'n', or 'a').\n"
             )
 
 
@@ -218,15 +218,15 @@ def query_yes_no_all_none(question, default="yes"):
         "non": Answers.NONE,
     }
     if default is None:
-        prompt = " [y/n/a/x] "
+        prompt = " [(y)es / (n)o / (a)ll / none (x)] "
     elif default == "yes":
-        prompt = " [Y/n/a/x] "
+        prompt = " [(Y)es / (n)o / (a)ll / none (x)] "
     elif default == "no":
-        prompt = " [y/N/a/x] "
+        prompt = " [(y)es / (N)o / (a)ll / none (x)] "
     elif default == "all":
-        prompt = " [y/n/A/x] "
+        prompt = " [(y)es / (n)o / (A)ll / none (x)] "
     elif default == "none":
-        prompt = " [y/n/a/X] "
+        prompt = " [(y)es / (n)o / (a)ll / none (X)] "
     else:
         raise ValueError("invalid default answer: '%s'" % default)
 
@@ -265,11 +265,11 @@ def query_yes_quit(question, default="quit"):
         "q": Answers.QUIT,
     }
     if default is None:
-        prompt = " [y/q] "
+        prompt = " [(y)es / (q)uit] "
     elif default == "yes":
-        prompt = " [Y/q] "
+        prompt = " [(Y)es / (q)uit] "
     elif default == "quit":
-        prompt = " [y/Q] "
+        prompt = " [(y)es / (Q)uit] "
     else:
         raise ValueError("invalid default answer: '%s'" % default)
 
@@ -282,7 +282,7 @@ def query_yes_quit(question, default="quit"):
             return valid[choice]
         else:
             sys.stdout.write(
-                "Please respond with 'yes' or 'quit' " "(or 'y' or 'q').\n"
+                "Please respond with 'yes' or 'quit' (or 'y' or 'q').\n"
             )
 
 
