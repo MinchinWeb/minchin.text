@@ -300,18 +300,18 @@ def wait(sec):
         sys.stdout.write("\r" + "           " + "\r")
 
 
-def title(mytitle):
+def title(text):
     print(
         colorama.Style.BRIGHT
         + colorama.Fore.YELLOW
         + colorama.Back.BLUE
-        + centered(mytitle)
+        + centered(text)
         + colorama.Style.RESET_ALL
     )
 
 
-def subtitle(mysubtitle):
-    print(colorama.Style.BRIGHT + centered(mysubtitle) + colorama.Style.RESET_ALL)
+def subtitle(text):
+    print(colorama.Style.BRIGHT + centered(text) + colorama.Style.RESET_ALL)
 
 
 def rainbow_print(text, offset=0):
@@ -457,5 +457,4 @@ def get_terminal_size():
 
 
 # To-Do:
-# * add a 'rainbow-ize function to make text a rainbow of colours!
 # * add a 'align-righted' function (text on right)

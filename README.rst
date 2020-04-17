@@ -105,7 +105,7 @@ normal (black) background.
 
 rainbow_print(text, offset=0)
 `````````````````````````````
-Prints out ``text`` and prints it in a cycle of rainbow colors!
+Prints out ``text`` in a cycle of rainbow-esque colors!
 
 
 progressbar (class)
