@@ -1,6 +1,9 @@
 Minchin.Text Changelog
 ======================
 
+v 6.0.2 [2020-04-17]
+--------------------
+
 - fixed bug where ``progressbar`` would sometimes not calculated the needed bar
   length
 - fixed display issue where is wasn't clear what the possible answers to
