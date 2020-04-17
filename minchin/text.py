@@ -379,6 +379,8 @@ class progressbar(object):
             and ((time.time() - self.last_time) > self.time_interval)
         ):
 
+            if self.length is None:
+                self._calc_length()
             filled = float(self.current) / float(self.maximum) * float(self.length)
             filled = min(int(filled), self.length)
             if filled == self.length:

@@ -1,6 +1,8 @@
 Minchin.Text Changelog
 ======================
 
+- fixed bug where ``progressbar`` would sometimes not calculated the needed bar
+  length
 - fixed display issue where is wasn't clear what the possible answers to
   queries were. This does make the output quite a bit longer.
 
