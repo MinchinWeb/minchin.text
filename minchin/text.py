@@ -81,9 +81,11 @@ COLOUR_CYCLE = [
 
 
 def length_no_ansi(mystring):
-    """Takes a string, strips out the ANSI escape codes
+    """
+    Takes a string, strips out the ANSI escape codes
     (used for colouring terminal output, etc.), and returns
-    the length of the resulting string"""
+    the length of the resulting string.
+    """
     newstring = re.sub(re_ansi_control_codes, "", mystring)
     return len(newstring)
 
@@ -102,7 +104,7 @@ def centered(mystring, linewidth=None, fill=" "):
 
 
 def clock_on_right(mystring):
-    """Takes a string, and prints it with the time right aligned"""
+    """Takes a string, and prints it with the time right aligned."""
     taken = length_no_ansi(mystring)
     padding = (get_terminal_size().columns - 1) - taken - 5
     clock = time.strftime("%I:%M", time.localtime())
@@ -110,7 +112,8 @@ def clock_on_right(mystring):
 
 
 def query_yes_no(question, default="yes"):
-    """Ask a yes/no question via raw_input() and return their answer.
+    """
+    Ask a yes/no question via raw_input() and return their answer.
 
     "question" is a string that is presented to the user.
     "default" is the presumed answer if the user just hits <Enter>.
@@ -150,7 +153,8 @@ def query_yes_no(question, default="yes"):
 
 
 def query_yes_no_all(question, default="yes"):
-    """Ask a yes/no/all question via raw_input() and return their answer.
+    """
+    Ask a yes/no/all question via raw_input() and return their answer.
 
     "question" is a string that is presented to the user.
     "default" is the presumed answer if the user just hits <Enter>.
@@ -194,7 +198,8 @@ def query_yes_no_all(question, default="yes"):
 
 
 def query_yes_no_all_none(question, default="yes"):
-    """Ask a yes/no/all/none question via raw_input() and return their answer.
+    """
+    Ask a yes/no/all/none question via raw_input() and return their answer.
 
     "question" is a string that is presented to the user.
     "default" is the presumed answer if the user just hits <Enter>.
@@ -245,7 +250,8 @@ def query_yes_no_all_none(question, default="yes"):
 
 
 def query_yes_quit(question, default="quit"):
-    """Ask a yes/quit question via raw_input() and return their answer.
+    """
+    Ask a yes/quit question via raw_input() and return their answer.
 
     "question" is a string that is presented to the user.
     "default" is the presumed answer if the user just hits <Enter>.
@@ -432,7 +438,9 @@ def version_number_str(major, minor=0, patch=0, prerelease=None, build=None):
 
 
 def get_terminal_size():
-    """Returns terminal dimensions
+    """
+    Returns terminal dimensions.
+
     :return: Returns ``(width, height)``.  If there's no terminal
              to be found, we'll just return ``(80, 24)``.
     """
