@@ -19,7 +19,7 @@ from enum import Enum
 import colorama
 
 __title__ = "minchin.text"
-__version__ = "6.0.3-dev"
+__version__ = "6.1.0"
 __description__ = "Python library for text formatting on the command line."
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"

@@ -1,6 +1,11 @@
 Minchin.Text Changelog
 ======================
 
+v 6.1.0 [2021-02-09]
+--------------------
+
+- added ``print_cols()`` to print text in multiple columns
+
 v 6.0.2 [2020-04-17]
 --------------------
 
