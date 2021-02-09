@@ -281,9 +281,7 @@ def query_yes_quit(question, default="quit"):
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write(
-                "Please respond with 'yes' or 'quit' (or 'y' or 'q').\n"
-            )
+            sys.stdout.write("Please respond with 'yes' or 'quit' (or 'y' or 'q').\n")
 
 
 def wait(sec):
@@ -365,7 +363,13 @@ class progressbar(object):
         )
 
     def update(self, currently=None, ignore_interval=False):
-        # print(currently, ignore_interval, self.last_time, (time.time() - self.last_time), ((time.time() - self.last_time) > self.time_interval))
+        # print(
+        #     currently,
+        #     ignore_interval,
+        #     self.last_time,
+        #     (time.time() - self.last_time),
+        #     ((time.time() - self.last_time) > self.time_interval),
+        # )
         # update counter
         if currently is None:
             self.current += 1
