@@ -1,4 +1,6 @@
 """Centered visual test for `minchin.text`"""
+import random
+
 from minchin import text as wmtext
 
 
@@ -21,6 +23,15 @@ def test_rainbow():
     for offset in range(7):
         wmtext.rainbow_print(text, offset)
 
+
+def test_print_cols():
+    wmtext.print_cols([random.randint(1, 1250) for _ in range(100)])
+    wmtext.print_cols([random.randint(1, 1250) for _ in range(21)], cols=2)
+    wmtext.print_cols([random.randint(1, 1250) for _ in range(100)], gap=10)
+    wmtext.print_cols([random.randint(1, 1250) for _ in range(100)], indent=10)
+    wmtext.print_cols([random.randint(1, 1250) for _ in range(100)], indent=10, gap=10)
+
+
 if __name__ == "__main__":
     import colorama
 
@@ -31,3 +42,5 @@ if __name__ == "__main__":
     test_centered()
     print()
     test_rainbow()
+    print()
+    test_print_cols()

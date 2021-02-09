@@ -9,6 +9,7 @@ programs.
 """
 from __future__ import division, print_function
 
+import math
 import re
 import sys
 import time
@@ -466,6 +467,50 @@ def get_terminal_size():
         sz = terminal_size(80, 24)
 
     return sz
+
+
+def print_cols(obj, cols=None, gap=4, indent=0):
+    """
+    Print a given list in evenly-spaced columns.
+
+    obj (list):
+        list of objects to print
+    cols (int or None):
+        how many columns to print. Select 'None' as the "auto" option.
+    gap (int):
+        how many spaces to have between columns
+    indent (int):
+        how many extra spaces to pad the left side of each line
+    """
+
+    obj_str = [str(x) for x in obj]
+    max_len = max([len(x) for x in obj_str])
+    if cols is None:
+        line_width = get_terminal_size().columns
+        printing_width = line_width - indent - 1
+        cols = math.floor((printing_width + gap) / (max_len + gap))
+    items_in_col = math.ceil(len(obj_str) / cols)
+
+    if indent:
+        indent_str = " " * indent
+    else:
+        indent_str = ""
+    if gap:
+        gap_str = " " * gap
+    else:
+        gap_str = ""
+
+    for i in range(items_in_col):
+        print(indent_str, end="")
+        for j in range(cols):
+            try:
+                print(obj_str[i + j * items_in_col].rjust(max_len, " "), end="")
+            except IndexError:
+                break
+            # don't print "gap_str" after last item
+            if j < (cols - 1):
+                print(gap_str, end="")
+        print("")  # newline
 
 
 # To-Do:
