@@ -7,6 +7,10 @@ Python library for text formatting on the command line.
     :target: https://pypi.python.org/pypi/minchin.text/
     :alt: PyPI version number
 
+.. image:: https://img.shields.io/badge/-Changelog-success
+   :target: https://github.com/MinchinWeb/minchin.text/blob/master/CHANGELOG.rst
+   :alt: Changelog
+
 .. image:: https://img.shields.io/pypi/pyversions/minchin.text?style=flat
     :target: https://pypi.python.org/pypi/minchin.text/
     :alt: Supported Python version
