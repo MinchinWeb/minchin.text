@@ -3,6 +3,23 @@ minchin.text
 
 Python library for text formatting on the command line.
 
+.. image:: https://img.shields.io/pypi/v/minchin.text.svg?style=flat
+    :target: https://pypi.python.org/pypi/minchin.text/
+    :alt: PyPI version number
+
+.. image:: https://img.shields.io/pypi/pyversions/minchin.text?style=flat
+    :target: https://pypi.python.org/pypi/minchin.text/
+    :alt: Supported Python version
+
+.. image:: https://img.shields.io/pypi/l/minchin.text.svg?style=flat&color=green
+    :target: https://github.com/MinchinWeb/minchin.text/blob/master/LICENSE
+    :alt: License
+
+.. image:: https://img.shields.io/pypi/dm/minchin.text.svg?style=flat
+    :target: https://pypi.python.org/pypi/minchin.text/
+    :alt: Download Count
+
+
 Available Data
 ---------------
 
